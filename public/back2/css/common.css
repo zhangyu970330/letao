@@ -34,9 +34,11 @@ ul {
 .mt_150 {
   margin-top: 150px;
 }
+
 .mt_20 {
   margin-top: 20px;
 }
+
 .red {
   color: #A94442;
 }
@@ -53,6 +55,7 @@ ul {
   z-index: 999;
   transition: left 1s;
 }
+
 .lt_aside.hidemenu {
   left: -180px;
 }
@@ -63,6 +66,7 @@ ul {
   line-height: 50px;
   background-color: #367FA9;
 }
+
 .lt_aside .brand a {
   text-align: center;
   display: block;
@@ -70,10 +74,12 @@ ul {
   text-decoration: none;
   font-size: 20px;
 }
+
 .lt_aside .user {
   height: 180px;
   padding-top: 30px;
 }
+
 .lt_aside .user img {
   width: 80px;
   height: 80px;
@@ -81,6 +87,7 @@ ul {
   margin: 0 auto;
   display: block;
 }
+
 .lt_aside .user p {
   text-align: center;
   line-height: 40px;
@@ -96,16 +103,20 @@ ul {
   color: #fff;
   border-left: 3px solid transparent;
 }
+
 .lt_aside .nav li a.current {
   background-color: #1D1F21;
   border-left: 3px solid #069;
 }
+
 .lt_aside .nav li i {
   margin-right: 5px;
 }
+
 .lt_aside .nav li .child {
   display: none;
 }
+
 .lt_aside .nav li .child a {
   padding-left: 60px;
 }
@@ -117,6 +128,7 @@ ul {
   padding-top: 50px;
   transition: padding-left 1s;
 }
+
 .lt_main.hidemenu {
   padding-left: 0px;
 }
@@ -131,6 +143,7 @@ ul {
   padding-left: 180px;
   transition: padding-left 1s;
 }
+
 .lt_topbar.hidemenu {
   padding-left: 0px;
 }
