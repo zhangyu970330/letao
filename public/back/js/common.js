@@ -37,4 +37,27 @@ $(function () {
         $('.lt_topbar').toggleClass("hidemenu");
         $('.lt_main').toggleClass("hidemenu");
     })
+
+
+    // 模态框退出
+    $('.lt_topbar .icon_right').click(function () {
+        // 显示退出的模态框
+        $('#logoutModal').modal("show");
+    });
+    $("#logoutBtn").click(function () {
+
+        // 接口
+        $.ajax({
+            type: "get",
+            url: "/employee/employeeLogout",
+            dataType: "json",
+            success: function (info) {
+                if (info.success) {
+                    location.href = "login.html";
+                }
+
+            }
+        })
+    })
+
 })
