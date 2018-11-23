@@ -169,7 +169,7 @@ $(function() {
         // 重新渲染第一页
         currentPage = 1;
         render();
-
+        
         // 找到下拉菜单文本重置
         $('#dropdownText').text("请选择1级分类")
 

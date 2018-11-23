@@ -153,6 +153,9 @@ $(function () {
 
                     // 内容和状态都要重置
                     $('#form').data("bootstrapValidator").resetForm(true);
+                    $('#dropdownText').text('请选择一级分类');
+                    $('#imgBox img').attr('src', "images/none.png");
+
                 }
             }
         })

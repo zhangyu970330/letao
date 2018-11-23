@@ -61,11 +61,11 @@ $(function () {
 
                 }
                 if (info.error === 1000) {
-                    alert("用户名错误");
+                    $('#form').data("bootstrapValidator").updateStatus("username", "INVALID", "callback")
 
                 }
                 if (info.error === 1001) {
-                    alert("密码错误");
+                    $('#form').data("bootstrapValidator").updateStatus("password", "INVALID", "callback")
 
                 }
 
@@ -75,7 +75,7 @@ $(function () {
 
     // 重置按钮
 
-    $('[type="reset"]').click(function() {
+    $('[type="reset"]').click(function () {
         $('#form').data('bootstrapValidator').resetForm();
     })
 

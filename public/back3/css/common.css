@@ -1,0 +1,127 @@
+.body_bg {
+    background-color: #222D32;
+}
+
+.panel .panel-title {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.mt_150 {
+    margin-top: 150px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
+/* 主页主体  侧边栏 */
+.ds_side {
+    position: fixed;
+    font: 0;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-color: #222D32;
+    z-index: 9999;
+}
+
+.ds_side .ds_header {
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #367FA9;
+    font-size: 20px;
+   
+}
+
+.ds_side .ds_header a {
+    color: #ffffff;
+
+}
+
+/* 头像 */
+.ds_side .ds_photo {
+    height: 180px;
+    width: 100%;
+    padding-top: 30px;
+
+}
+
+.ds_photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.ds_photo p {
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* 导航 */
+.nav ul li a {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    color: #ffffff;
+    padding-left: 40px;
+
+}
+
+.nav ul li a i {
+    padding-right: 8px;
+}
+
+.nav ul li .child a {
+    padding-left: 60px;
+    display: none;
+
+}
+
+/* 主体 */
+.da_mian {
+    height: 2000px;
+    padding-left: 180px;
+    background-color: pink;
+    padding-top: 30px;
+
+}
+
+.da_mian .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 180px;
+    width: 100%;
+    height: 50px;
+    background-color: #3C8DBC;
+}
+ .topbar .icon_left,
+ .topbar .icon_right{
+     width: 50px;
+     height: 50px;
+     color: #ffff;
+     font-size: 20px;
+     text-align: center;
+     line-height: 50px;
+ }
