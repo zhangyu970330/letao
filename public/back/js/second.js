@@ -54,10 +54,48 @@ $(function () {
 
     })
 
+    // 下来菜单
+    $('.dropdown-menu').on('click', 'a', function () {
+
+        var txt = $(this).text();
+
+        $('#dropdownText').text(txt);
+
+        var id = $(this).data("id");
+
+        $('[name="categoryId"]').val(id);
+
+        $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
+
+
+    });
+
+
+    // 上传图片
+    $("#fileupload").fileupload({
+        dataType: "json",
+        //e：事件对象
+        //data：图片上传后的对象，通过data.result.picAddr可以获取上传后的图片地址
+        done: function (e, data) {
+            console.log(data);
+            var result = data.result;
+
+            var picUrl = result.picAddr;
+
+            $('#imgBox img').attr('src', picUrl);
+
+            $('[name="brandLogo"]').val(picUrl);
+
+            $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
+        }
+    });
+
+
+
 
     // 表单校验
     $('#form').bootstrapValidator({
-
+        excluded: [],
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
@@ -68,21 +106,28 @@ $(function () {
                 validators: {
                     //不能为空
                     notEmpty: {
+                        message: '请输入二级分类名称'
+                    }
+                }
+            },
+            categoryId: {
+                validators: {
+                    //不能为空
+                    notEmpty: {
                         message: '请输入一级分类名称'
-                    },
+                    }
 
                 }
             },
+            brandLogo: {
+                validators: {
+                    notEmpty: {
+                        message: "请上传图片"
+                    }
+                }
+            }
         }
 
     });
-
-
-
-
-
-
-
-
 
 })
