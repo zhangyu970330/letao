@@ -130,4 +130,33 @@ $(function () {
 
     });
 
+    $('#form').on("success.form.bv", function (e) {
+
+        // 阻止默认的提交
+        e.preventDefault();
+
+        // 通过 ajax 提交
+        $.ajax({
+            type: "post",
+            url: "/category/addSecondCategory",
+            data: $('#form').serialize(),
+            dataType: "json",
+            success: function (info) {
+                console.log(info);
+                if (info.success) {
+                    // 添加成功
+                    // 关闭模态框
+                    $('#addModal').modal("hide");
+                    // 重新渲染页面, 重新渲染第一页
+                    currentPage = 1;
+                    render();
+
+                    // 内容和状态都要重置
+                    $('#form').data("bootstrapValidator").resetForm(true);
+                }
+            }
+        })
+
+    })
+
 })
