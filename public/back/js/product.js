@@ -191,46 +191,89 @@ $(function () {
     })
     // 表单验证成功是 
 
-    $('#from').on("success.form.bv", function (e) {
+    //     $('#from').on("success.form.bv", function (e) {
+    //         e.preventDefault();
+
+    //         // 还需要拼接上图片地址和名称
+    //         // paramsStr += "&key1=value1&key2=value2"
+    //         var pramastr = $('#form').serialize();
+    //         pramastr += "&picName1=" + picArr[0].picName + "&picAddr1=" + picArr[0].picAddr;
+    //         pramastr += "&picName2=" + picArr[1].picName + "&picAddr2=" + picArr[1].picAddr;
+    //         pramastr += "&picName3=" + picArr[2].picName + "&picAddr3=" + picArr[2].picAddr;
+
+
+
+    //         console.log(pramastr);
+    //         $.ajax({
+    //             type: "post",
+    //             url: "/product/addProduct",
+    //             data: pramastr,
+    //             dataType: "json",
+    //             success: function (info) {
+    //                 console.log(info);
+    //                 if (info.success) {
+    //                     // 关闭模态框
+    //                     $('#addModal'), modal('hide');
+    //                     currentPage = 1;
+    //                     rander();
+    //                     // 手动重置隐藏域
+
+    //                     $('#form').data("bootstrapValidator").resetForm(true);
+    //                     $('#dropdownText').text("请重新选择二级分类");
+    //                     $('#imgBox img').remove();
+    //                     picArr = [];
+    //                 }
+
+    //             }
+    //         })
+
+
+
+
+    //     })
+
+
+    // })
+    $('#form').on("success.form.bv", function (e) {
         e.preventDefault();
+
+        var paramsStr = $('#form').serialize(); // 所有表单内容数据
 
         // 还需要拼接上图片地址和名称
         // paramsStr += "&key1=value1&key2=value2"
-        var pramastr = $('#form').serialize();
-        pramastr += "&picName1=" + picArr[0].picName + "&picAddr1=" + picArr[0].picAddr;
-        pramastr += "&picName2=" + picArr[1].picName + "&picAddr2=" + picArr[1].picAddr;
-        pramastr += "&picName3=" + picArr[2].picName + "&picAddr3=" + picArr[2].picAddr;
+        paramsStr += "&picName1=" + picArr[0].picName + "&picAddr1=" + picArr[0].picAddr;
+        paramsStr += "&picName2=" + picArr[1].picName + "&picAddr2=" + picArr[1].picAddr;
+        paramsStr += "&picName3=" + picArr[2].picName + "&picAddr3=" + picArr[2].picAddr;
 
-       
-
-        console.log(pramastr);
         $.ajax({
             type: "post",
             url: "/product/addProduct",
-            data: pramastr,
+            data: paramsStr,
             dataType: "json",
             success: function (info) {
                 console.log(info);
                 if (info.success) {
+                    // 添加成功
                     // 关闭模态框
-                    $('#addModal'), modal('hide');
+                    $('#addModal').modal("hide");
+                    // 页面重新渲染第一页
                     currentPage = 1;
-                    rander();
-                    // 手动重置隐藏域
+                    render();
 
+                    // 重置所有的表单内容和状态
                     $('#form').data("bootstrapValidator").resetForm(true);
-                    $('#dropdownText').text("请重新选择二级分类");
+
+                    // 由于下拉菜单  和  图片 不是表单元素, 需要手动重置
+                    $('#dropdownText').text("请选择二级分类");
+
+                    // 删除图片的同时, 清空数组
                     $('#imgBox img').remove();
                     picArr = [];
                 }
-
             }
         })
-
-
-
-
     })
+
 
 
 })
